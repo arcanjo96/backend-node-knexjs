@@ -20,6 +20,12 @@ $ npm run knex:migrate
 $ npm run knex:rollback
 ```
 
+## Up Postgres
+
+```bash
+docker-compose up -d
+```
+
 ## Running
 
 ```bash
