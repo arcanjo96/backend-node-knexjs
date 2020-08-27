@@ -35,7 +35,12 @@ export default class AuthController {
             });
 
             return response.json({
-                access_token: token
+                token,
+                user: {
+                    id: findedUser.id,
+                    name: findedUser.name,
+                    email: findedUser.email
+                }
             });
         } catch (error) {
             console.log(error);

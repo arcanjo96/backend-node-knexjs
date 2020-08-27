@@ -43,9 +43,11 @@ export default class UsersController {
 
             user.password = await hashPassowrd(user.password);
             const createdUser = await database('users').insert(user).returning('*');
-
-            return response.status(201).json(createdUser);
+            const data = Object.assign(createdUser);
+            delete data[0].password;
+            return response.status(201).json(data);
         } catch (error) {
+            console.log(error);
             return response.status(400).json({
                 message: error
             });
